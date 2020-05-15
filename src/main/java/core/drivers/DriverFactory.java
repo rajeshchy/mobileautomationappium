@@ -10,7 +10,7 @@ public class DriverFactory {
 
     AppiumDriver driver;
 
-    public AppiumDriver getDriver(String platForm) {
+    public AppiumDriver getDriver(String platForm) throws PlatformNotFoundException {
         if (platForm.equalsIgnoreCase("android")) {
             CreateAndroidDriver createDriver = new CreateAndroidDriver();
             driver = createDriver.createAndroidDriver();
@@ -30,6 +30,6 @@ public class DriverFactory {
 
         }
 
-
+        return null;
     }
 }
