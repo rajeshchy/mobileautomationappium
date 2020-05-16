@@ -20,6 +20,7 @@ public class PropertyUtils {
     public String getProperty(String property)
     {
         try {
+            properties = new Properties();
             properties.load(getClass().getClassLoader().getResourceAsStream(fileName));
         } catch (IOException e) {
             e.printStackTrace();

@@ -2,18 +2,15 @@ package core.drivers;
 
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
-import io.appium.java_client.service.local.flags.AndroidServerFlag;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
-
 import java.net.URL;
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /**
  * @author Rajesh
  */
 public class AppiumServer {
-    AppiumDriverLocalService appiumService;
+    public static  AppiumDriverLocalService appiumService;
     AppiumServiceBuilder serviceBuilder;
 
     public URL startAppiumServer() {
@@ -36,7 +33,7 @@ public class AppiumServer {
 
     }
 
-    public void stopAppiumServer() {
+    public static void stopAppiumServer() {
         appiumService.stop();
     }
 }

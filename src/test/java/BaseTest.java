@@ -1,3 +1,4 @@
+import core.drivers.AppiumServer;
 import core.drivers.DriverFactory;
 import core.exceptions.PlatformNotFoundException;
 import io.appium.java_client.AppiumDriver;
@@ -14,23 +15,26 @@ public class BaseTest {
     AppiumDriver driver;
     DriverFactory driverFactory;
 
-    @Parameters("platform")
-    @BeforeSuite
-    public void beforeSuite(String platform)
+
+    @Parameters({"platform","deviceName"})
+    @BeforeSuite(alwaysRun = true)
+    public void beforeSuite(String platform,String deviceName)
     {
         driverFactory = new DriverFactory();
 
         try {
-            driver = driverFactory.getDriver(platform);
+            driver = driverFactory.getDriver(platform,deviceName);
         } catch (PlatformNotFoundException e) {
             e.printStackTrace();
         }
     }
 
 
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void afterSuite()
     {
         driver.quit();
+        AppiumServer.stopAppiumServer();
+
     }
 }

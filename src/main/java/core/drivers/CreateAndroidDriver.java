@@ -15,22 +15,22 @@ public class CreateAndroidDriver {
     private PropertyUtils propertyUtils;
     private DesiredCapabilities capabilities;
     public AndroidDriver driver;
-    private AppiumServer appiumServer;
 
 
-    public AndroidDriver createAndroidDriver() {
+    public AndroidDriver createAndroidDriver(String deviceName) {
         propertyUtils = new PropertyUtils("devices.properties");
         File apkFilePath = new File(System.getProperty("user.dir") + "/src/main/resources/okcredit.apk");
 
+        capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.APP, apkFilePath.getAbsolutePath());
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, propertyUtils.getProperty("driverType"));
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "android");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, propertyUtils.getProperty("version"));
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, propertyUtils.getProperty("name"));
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, propertyUtils.getProperty(deviceName+".version"));
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,deviceName);
         capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, propertyUtils.getProperty("app_package"));
         capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, propertyUtils.getProperty("app_activity"));
 
-            driver = new AndroidDriver(appiumServer.startAppiumServer(), capabilities);
+        driver = new AndroidDriver(new AppiumServer().startCustomisedAppiumService(), capabilities);
 
         return driver;
     }

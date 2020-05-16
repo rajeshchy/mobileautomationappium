@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<!--<suite name="okCredit test">-->
+    <!--<parameter name="platform" value="android"/>-->
+    <!--<parameter name="deviceName" value="emulator-5554"/>-->
+
+
+    <!--<test name="emulator test">-->
+        <!--<classes>-->
+            <!--<class name="BaseTest"/>-->
+            <!--<class name="WelcomePageTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+<!--</suite>-->
+
+
+<suite name="okCredit tes 2">
+<parameter name="platform" value="android"/>
+<parameter name="deviceName" value="emulator-5556"/>
+
+
+<test name="emulator test">
+    <classes>
+        <class name="BaseTest"/>
+        <class name="WelcomePageTest"/>
+    </classes>
+</test>
+
+</suite>
+<!--</suites>-->

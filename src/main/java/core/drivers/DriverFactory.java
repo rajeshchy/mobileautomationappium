@@ -10,10 +10,10 @@ public class DriverFactory {
 
     AppiumDriver driver;
 
-    public AppiumDriver getDriver(String platForm) throws PlatformNotFoundException {
+    public AppiumDriver getDriver(String platForm,String deviceName) throws PlatformNotFoundException {
         if (platForm.equalsIgnoreCase("android")) {
             CreateAndroidDriver createDriver = new CreateAndroidDriver();
-            driver = createDriver.createAndroidDriver();
+            driver = createDriver.createAndroidDriver(deviceName);
             return driver;
 
         }
