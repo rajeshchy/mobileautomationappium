@@ -7,6 +7,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
@@ -17,6 +18,7 @@ public class CreateAndroidDriver {
     private PropertyUtils propertyUtils;
     private DesiredCapabilities capabilities;
     public AndroidDriver driver;
+    private AppiumServer appiumServer;
 
 
     public AndroidDriver createAndroidDriver() {
@@ -31,7 +33,8 @@ public class CreateAndroidDriver {
         capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, propertyUtils.getProperty("app_package"));
         capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, propertyUtils.getProperty("app_activity"));
 
-        driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+            driver = new AndroidDriver(appiumServer.startAppiumServer(), capabilities);
+
         return driver;
     }
 }
