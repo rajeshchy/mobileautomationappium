@@ -9,11 +9,18 @@ import java.util.Properties;
 public class PropertyUtils {
 
     Properties properties;
+    String fileName;
+
+    public PropertyUtils(String fileName)
+    {
+        this.fileName = fileName;
+
+    }
 
     public String getProperty(String property)
     {
         try {
-            properties.load(getClass().getClassLoader().getResourceAsStream(""));
+            properties.load(getClass().getClassLoader().getResourceAsStream(fileName));
         } catch (IOException e) {
             e.printStackTrace();
         }
