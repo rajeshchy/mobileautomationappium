@@ -23,8 +23,32 @@
             <version>7.1.0</version>
         </dependency>
 
-
-
     </dependencies>
+
+    <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M4</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>./src/TestNg1.xml</suiteXmlFile>
+                        <suiteXmlFile>./src/TestNg2.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+
+                    <properties>
+                        <property>
+                            <name>suitethreadpoolsize</name>
+                            <value>2</value>
+                        </property>
+                    </properties>
+                </configuration>
+            </plugin>
+        </plugins>
+
+
+    </build>
 
 </project>

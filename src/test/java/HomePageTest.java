@@ -1,3 +1,5 @@
+import core.utils.RandomStringGenerator;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
@@ -16,12 +18,11 @@ public class HomePageTest extends BaseTest {
         homePage.navigateToHomePage();
     }
 
-
     @Test(description = "This test case verifies that user is added in homePage")
     public void verifyUserIsAdded()
     {
-
+        String newUserName = RandomStringGenerator.generateString(5);
+        homePage.addNewUser(newUserName);
+        Assert.assertTrue(homePage.getListOfUsers().contains(newUserName));
     }
-
-
 }

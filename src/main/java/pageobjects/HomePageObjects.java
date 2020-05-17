@@ -7,6 +7,8 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 /**
  * @author Rajesh
  */
@@ -44,6 +46,10 @@ public class HomePageObjects {
     @iOSXCUITFindBy(accessibility = "")
     @AndroidFindBy(id = "buttonContainer")
     public WebElement phoneOkButton;
+
+    @iOSXCUITFindBy(accessibility = "")
+    @AndroidFindBy(id = "in.okcredit.merchant:id/desc")
+    public List<WebElement> listOfUsers;
 
 
 }

@@ -47,4 +47,10 @@ public class CommonActions {
         wait.until(ExpectedConditions.elementToBeClickable(element));
 
     }
+
+
+    public String getTextOfElement(WebElement element)
+    {
+        return element.getText();
+    }
 }
