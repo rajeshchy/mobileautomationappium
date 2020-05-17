@@ -1,7 +1,6 @@
 package pages;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.support.PageFactory;
 import pageobjects.HomePageObjects;
 
 /**
@@ -12,14 +11,15 @@ public class HomePage extends HomePageObjects {
 
     public HomePage(AppiumDriver driver)
     {
+        super(driver);
         this.driver = driver;
-        PageFactory.initElements(driver, HomePageObjects.class);
     }
-
 
 
     public void navigateToHomePage()
     {
        new LoginPage(driver).doLogin("8904423701","123456");
     }
+
+
 }
