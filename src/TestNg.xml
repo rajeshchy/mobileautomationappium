@@ -27,6 +27,8 @@
     <classes>
         <class name="BaseTest"/>
         <class name="WelcomePageTest"/>
+        <class name="HomePageTest"/>
+        <class name="LoginPageTest"/>
     </classes>
 </test>
 

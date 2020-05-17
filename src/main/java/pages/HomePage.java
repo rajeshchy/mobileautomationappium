@@ -20,6 +20,6 @@ public class HomePage extends HomePageObjects {
 
     public void navigateToHomePage()
     {
-
+       new LoginPage(driver).doLogin("8904423701","123456");
     }
 }

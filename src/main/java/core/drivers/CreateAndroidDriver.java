@@ -29,6 +29,8 @@ public class CreateAndroidDriver {
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,deviceName);
         capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, propertyUtils.getProperty("app_package"));
         capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, propertyUtils.getProperty("app_activity"));
+        capabilities.setCapability("unicodeKeyboard", true);
+        capabilities.setCapability("resetKeyboard", true);
 
         driver = new AndroidDriver(new AppiumServer().startCustomisedAppiumService(), capabilities);
 

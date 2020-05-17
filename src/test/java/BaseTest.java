@@ -12,7 +12,7 @@ import org.testng.annotations.Parameters;
  */
 public class BaseTest {
 
-    AppiumDriver driver;
+    public static AppiumDriver driver;
     DriverFactory driverFactory;
 
 
@@ -24,6 +24,7 @@ public class BaseTest {
 
         try {
             driver = driverFactory.getDriver(platform,deviceName);
+            System.out.println("ruko");
         } catch (PlatformNotFoundException e) {
             e.printStackTrace();
         }

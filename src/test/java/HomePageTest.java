@@ -1,7 +1,6 @@
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.LoginPage;
 
 /**
  * @author Rajesh
@@ -13,6 +12,7 @@ public class HomePageTest extends BaseTest {
     @BeforeTest
     public void beforeTest()
     {
+        System.out.println("ruk bhai");
         homePage = new HomePage(driver);
         homePage.navigateToHomePage();
     }
@@ -22,6 +22,7 @@ public class HomePageTest extends BaseTest {
     @Test(description = "This test case verifies that user is added in homePage")
     public void verifyUserIsAdded()
     {
+        System.out.println("Yoooooooooooooo");
 
     }
 
